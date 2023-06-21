@@ -63,3 +63,74 @@ buttonPreviusElement.addEventListener('click', event => {
   }
   subtitleElement.textContent = fiveWords[counter];
 });
+
+// Repite el mismo ejercicio pero esta vez desactiva el botón previous si estás en el primer elemento y el botón next si estás en el último
+
+const buttonPreviusElement2 = document.getElementById('button-previus2');
+
+const buttonNextElement2 = document.getElementById('button-next2');
+
+const subtitleElement2 = document.getElementById('subtitle2');
+
+let counter2 = 0;
+
+buttonNextElement2.addEventListener('click', event => {
+  counter2++;
+  if (counter2 === fiveWords.length - 1) {
+    buttonNextElement2.disabled = true;
+  } else {
+    buttonPreviusElement2.disabled = false;
+
+  }
+  subtitleElement2.textContent = fiveWords[counter2];
+});
+
+buttonPreviusElement2.addEventListener('click', event => {
+  counter2--;
+  if (counter2 === 0) {
+    buttonPreviusElement2.disabled = true;
+  } else {
+    buttonNextElement2.disabled = false;
+
+  }
+  subtitleElement2.textContent = fiveWords[counter2];
+});
+
+// Crea un input range con un label, al mover el input range deberá escribir en el label el valor del input range.
+
+const rangeElement = document.getElementById('range');
+
+const labelElement = document.getElementById('label');
+
+rangeElement.addEventListener('mousemove', event => {
+  labelElement.textContent = event.target.value;
+  
+});
+
+// Crea una lista de 4 checkbox con el texto que quieras y un botón, al pulsar el botón deberá decirte cuantos checkbox están marcados y cual es su texto.
+
+const checkboxElement1 = document.getElementById('checkbox-1');
+
+const checkboxElement2 = document.getElementById('checkbox-2');
+
+const checkboxElement3 = document.getElementById('checkbox-3');
+
+const checkboxElement4 = document.getElementById('checkbox-4');
+
+const buttonCheckboxElement = document.getElementById('button-checkbox');
+
+buttonCheckboxElement.addEventListener('click', event => {
+
+  const allCheckboxes = document.querySelectorAll('input[type = "checkbox"]:checked');
+
+  allCheckboxes.forEach(input => {
+    console.log(input.previousElementSibling.textContent);
+  });
+
+  console.log(allCheckboxes.length);
+
+ 
+});
+ 
+
+
